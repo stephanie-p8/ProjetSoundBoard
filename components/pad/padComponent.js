@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { View,FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Audio } from "expo-av";
 
-const PadComponent = () => {
+const PadComponent = ({navigation}) => {
 
     const defaultSound = useSelector(padSelector);
 
@@ -27,10 +27,13 @@ const PadComponent = () => {
     const playSound = async (id) => {
         dispatch(changeSource(id));
         const { sound } = await Audio.Sound.createAsync(defaultSound[id].url);
-        console.log(defaultSound[id].url);
         setSound(sound);
         await sound.playAsync();
     };
+
+    const handleLongPress = (item) => {
+        navigation.navigate("Edit pad",{props: item})
+    }
 
     useEffect(() => {
         return () => {
@@ -46,7 +49,7 @@ const PadComponent = () => {
                 data={grid}
                 numColumns={defaultSound.length}
                 keyExtractor = {(item) => item.id.toString()}
-                renderItem = {({ item }) => <TouchableOpacity style={styles.button} onPress={()=>{playSound(item.id)}}/>}
+                renderItem = {({ item }) => <TouchableOpacity style={styles.button} onPress={()=>{playSound(item.id)}} onLongPress={()=>handleLongPress(item)}/>}
             />
             <StatusBar style="auto" />
         </View>

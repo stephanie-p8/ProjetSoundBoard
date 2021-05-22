@@ -74,3 +74,5 @@ export const librarySlice = createSlice({
 
 export const { add, remove, edit } = librarySlice.actions;
 export default librarySlice.reducer;
+
+export const librarySelector = (state) => state.library;
