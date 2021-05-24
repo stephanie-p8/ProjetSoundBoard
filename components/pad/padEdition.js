@@ -1,6 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+
+const PadEdition = ({route,navigation}) => {
+    const {props} = route.params
+
+
 /**
  * Render a view where user can choose the option of edition  
  * @param {SamplerEditionNavigation} route to get parameters of navigation

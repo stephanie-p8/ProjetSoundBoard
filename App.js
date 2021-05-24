@@ -1,12 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import store from "./store/store";
 import { Provider } from "react-redux";
-import PadComponent from './components/pad/padComponent';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import SamplerEditionNavigation from "./components/navigation/navigation";
 
 const Tabs = createBottomTabNavigator();
 
@@ -33,9 +32,7 @@ const App = ()=> {
         >
 
          
-          <Tabs.Screen name="Sampler">
-            {(props) => <PadComponent {...props}/>}
-          </Tabs.Screen>
+          <Tabs.Screen name="Sampler"  component={SamplerEditionNavigation}/>
          
         </Tabs.Navigator>
       </NavigationContainer>

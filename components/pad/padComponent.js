@@ -15,6 +15,7 @@ import { librarySelector } from '../library/librarySlice';
  * @see {@link https://docs.expo.io/versions/latest/sdk/av/ | expo-av from expo library } to use medias
  * @see {@link https://docs.expo.io/versions/latest/sdk/audio/ | Audio from expo library } to use audio methods
  */
+
 const PadComponent = ({navigation}) => {
 
     /**
