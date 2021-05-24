@@ -1,11 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-
-const PadEdition = ({route,navigation}) => {
-    const {props} = route.params
-
-
 /**
  * Render a view where user can choose the option of edition  
  * @param {SamplerEditionNavigation} route to get parameters of navigation
@@ -29,6 +24,14 @@ const PadEdition = ({route,navigation}) => {
         navigation.navigate("Trim pad",{props:props});
     }
 
+     /**
+     * Navigate to the change source view to choose the source of change for the pad audio
+     * @see handleLongPress
+     */
+    const changePadSource = () => {
+        navigation.navigate("Change pad source",{props:props});
+    }
+
     return(
         <View>
             <Text style={styles.header}>Choix d'edition</Text>
@@ -37,7 +40,7 @@ const PadEdition = ({route,navigation}) => {
                 <TouchableOpacity onPress={trimPad}>
                     <Text style={styles.buttonLabel}> - Rogner le sample {props.id}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={changePadSource}>
                     <Text style={styles.buttonLabel}> - Changer le sample {props.id}</Text>
                 </TouchableOpacity>
             </View>

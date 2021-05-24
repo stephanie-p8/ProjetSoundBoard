@@ -15,11 +15,10 @@ import { librarySelector } from '../library/librarySlice';
  * @see {@link https://docs.expo.io/versions/latest/sdk/av/ | expo-av from expo library } to use medias
  * @see {@link https://docs.expo.io/versions/latest/sdk/audio/ | Audio from expo library } to use audio methods
  */
-
 const PadComponent = ({navigation}) => {
 
     /**
-     * Use the padSelector for the sounds in each pad
+     * Use the librarySelector for the sounds in each pad
      * @see padSelector
      * @see {@link https://react-redux.js.org/api/hooks#useselector | useSelector hook from redux toolkit } to extract data from the Redux store state, using a selector function.
      */

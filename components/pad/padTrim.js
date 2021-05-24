@@ -68,7 +68,6 @@ const PadTrim = ({route}) =>{
      * A callback for when the right handle is initially pressed in. Set the right position value.
      * @param {int} rightPosition the new right position
      */
-
     const onRightHandlePressIn = (rightPosition) =>{
         setTrimmerRightHandlePosition(rightPosition);
     }
@@ -102,11 +101,11 @@ const PadTrim = ({route}) =>{
      * Set the scrubber position during the audio playing.
      * Interval is cleared after.
      */
-    useEffect(() => {
+    useEffect(() => {//componentDidMount
         let scrubberInterval = setInterval(() => {
             setScrubberPosition(scrubberPosition+scrubInterval);
         },scrubInterval)
-        return () => {
+        return () => {//componentWillUnmount
             clearInterval(scrubberInterval);
         }
     }, [scrubberPosition])
