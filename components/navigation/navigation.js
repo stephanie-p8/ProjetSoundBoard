@@ -4,8 +4,18 @@ import PadComponent from '../pad/padComponent';
 import PadEdition from '../pad/padEdition';
 import PadTrim from '../pad/padTrim';
 
+/**
+ * Create a stack navigator for edition
+ * @see {@link https://reactnavigation.org/docs/stack-navigator/ | Stack-Navigator}
+ */
 const Stack = createStackNavigator();
 
+/**
+ * Render navigation between screens PadComponent, PadEdition and PadTrim
+ * @returns Stack Navigator
+ * @author Stephanie PERAFAN
+ * @version 1.0.0
+ */
 const SamplerEditionNavigation = () =>{
 
     return(

@@ -1,9 +1,30 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+
 const PadEdition = ({route,navigation}) => {
     const {props} = route.params
 
+
+/**
+ * Render a view where user can choose the option of edition  
+ * @param {SamplerEditionNavigation} route to get parameters of navigation
+ * @param  {SamplerEditionNavigation} navigation to navigate between edition view and trim view
+ * @returns a view with options of edition
+ * @author Stephanie PERAFAN
+ * @version 1.0
+ */
+const PadEdition = ({route,navigation}) => {
+    /**
+     * Route given for navigation
+     * @see handleLongPress 
+     */
+    const {props} = route.params
+
+    /**
+     * Navigate to the trim view to edit the pad audio
+     * @see handleLongPress
+     */
     const trimPad = () =>{
         navigation.navigate("Trim pad",{props:props});
     }

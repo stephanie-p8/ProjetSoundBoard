@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+ * Library slice  that contain sampler state and enable to add, edit and remove information from library
+ * @author Stephanie PERAFAN
+ * @version 1.1.0
+ * @see {@link https://redux-toolkit.js.org/api/createSlice | createSlice Redux toolkit }
+ */
 export const librarySlice = createSlice({
   name: "library",
   initialState: [
@@ -72,7 +78,8 @@ export const librarySlice = createSlice({
   },
 });
 
-export const { add, remove, edit } = librarySlice.actions;
-export default librarySlice.reducer;
 
-export const librarySelector = (state) => state.library;
+export const { add, remove, edit } = librarySlice.actions; //reducer methods
+export default librarySlice.reducer; //reducer
+
+export const librarySelector = (state) => state.library; //selector
