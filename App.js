@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import SamplerEditionNavigation from "./components/navigation/navigation";
+import LibraryComponent from './components/library/libraryComponent';
 
 const Tabs = createBottomTabNavigator();
 
@@ -21,6 +22,9 @@ const App = ()=> {
                 case "Sampler":
                   iconName = focused ? "musical-notes" : "musical-notes-outline";
                   break;
+                case "Library":
+                  iconName = focused ? "library" : "library-outline";
+                  break;
                 default:
                   iconName = "ban";
                   break;
@@ -33,6 +37,9 @@ const App = ()=> {
 
          
           <Tabs.Screen name="Sampler"  component={SamplerEditionNavigation}/>
+          <Tabs.Screen name="Library">
+            {(props) => <LibraryComponent  {...props} />}
+          </Tabs.Screen>
          
         </Tabs.Navigator>
       </NavigationContainer>

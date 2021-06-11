@@ -1,10 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-import PadComponent from '../pad/padComponent';
-import PadEdition from '../pad/padEdition';
-import PadTrim from '../pad/padTrim';
-import PadChangeSourceView from "../pad/padChangeSourceView";
-import PadLibrarySource from "../source/padLibrarySource";
+import PadComponent from '../pad/PadComponent';
+import PadEdition from '../pad/PadEdition';
+import PadTrim from '../pad/PadTrim';
+import PadChangeSourceView from "../pad/PadChangeSourceView";
+import PadLibrarySource from "../source/PadLibrarySource";
+import PadFreesoundSource from "../source/PadFreesoundSource";
 
 /**
  * Create a stack navigator for edition
@@ -43,12 +44,14 @@ const SamplerEditionNavigation = () =>{
              <Stack.Screen 
                 name="Change pad source" 
                 component={PadChangeSourceView} 
-                initialParams={{id:'no id'}}
             />
             <Stack.Screen 
                 name="Pad source from library" 
                 component={PadLibrarySource} 
-                initialParams={{id:'no id'}}
+            />
+            <Stack.Screen 
+                name="Pad source from freesound" 
+                component={PadFreesoundSource} 
             />
         </Stack.Navigator>
     )
