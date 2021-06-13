@@ -28,24 +28,31 @@ const PadChangeSourceView = ({route,navigation}) =>{
         navigation.navigate("Pad source from freesound",{props:props})
     }
 
+     /**
+     * Navigate to view with the list of audio by a search in freesound
+     */
+    const changeFromMicro = () =>{
+        navigation.navigate("Pad source from micro",{props:props})
+    }
+
     return(
-        <View>
+        <View style={{flex:1}}>
             <Text style={styles.header}>
                 <TouchableOpacity style={{paddingRight:2}}onPress={()=>navigation.goBack()}>
                     <Ionicons name="arrow-back-outline" size={30} color="white"/>
                 </TouchableOpacity>
-                Choix de la source
+                Source choice
             </Text>
-            <View style={{alignItems:'center'}}>
-                <Text style={styles.title}>Choisisez la source de changement du pad:</Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>Choose a new source to change the pad:</Text>
                 <TouchableOpacity onPress={changeFromLibrary}>
-                    <Text style={styles.buttonLabel}> - Choix d'un nouveau son parmi la bibliothèque locale</Text>
+                    <Text style={styles.buttonLabel}> - Choice of a new sound from the local library</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={styles.buttonLabel}> - Enregistrement d'un nouveau son avec le micro</Text>
+                <TouchableOpacity onPress={changeFromMicro}>
+                    <Text style={styles.buttonLabel}> - Recording a sound with the mic</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={changeFromFreesound}>
-                    <Text style={styles.buttonLabel}> - Recherche d'un son par mot-clé en utilisant l'API freesound</Text>
+                    <Text style={styles.buttonLabel}> - Search a sound by keyword using freesound API</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -57,7 +64,6 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      
     },
     header: {
         fontSize: 30,

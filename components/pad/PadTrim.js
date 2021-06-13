@@ -116,7 +116,7 @@ const PadTrim = ({route, navigation}) =>{
                 <TouchableOpacity style={{paddingRight:2}}onPress={()=>navigation.goBack()}>
                     <Ionicons name="arrow-back-outline" size={30} color="white"/>
                 </TouchableOpacity>
-                Rogner le sample {props.id} à la durée désirée
+                Trim pad {props.id} to the desired length
             </Text>
             <View>
                 {

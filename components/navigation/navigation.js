@@ -6,6 +6,7 @@ import PadTrim from '../pad/PadTrim';
 import PadChangeSourceView from "../pad/PadChangeSourceView";
 import PadLibrarySource from "../source/PadLibrarySource";
 import PadFreesoundSource from "../source/PadFreesoundSource";
+import PadMicroSource from '../source/PadMicroSource';
 
 /**
  * Create a stack navigator for edition
@@ -52,6 +53,10 @@ const SamplerEditionNavigation = () =>{
             <Stack.Screen 
                 name="Pad source from freesound" 
                 component={PadFreesoundSource} 
+            />
+             <Stack.Screen 
+                name="Pad source from micro" 
+                component={PadMicroSource} 
             />
         </Stack.Navigator>
     )

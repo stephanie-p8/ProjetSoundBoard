@@ -3,6 +3,12 @@ import { View, Text, StyleSheet, FlatList, TextInput, TouchableOpacity } from 'r
 import FreesoundItem from '../FreesoundItem';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+
+/**
+ * Format for the response to the API request
+ * @param {item} item 
+ * @returns array with name, description, type, url of download and id of the sound
+ */
 const formatResponse = (item) => {
     return {
       previews: item.previews,
@@ -15,6 +21,11 @@ const formatResponse = (item) => {
     };
 };
 
+/**
+ * Search a sound by sending a request to the API
+ * @param {string} query the sound searched in the API
+ * @returns array of results to the request from the API
+ */
 const searchSounds = async (query) =>{
 
     if(query=="") return;
@@ -27,16 +38,20 @@ const searchSounds = async (query) =>{
 const PadFreesoundSource = ({route,navigation}) =>{
     const {props} = route.params;
     const [input,setInput] = useState("");
-    const [sound, setSound] = useState();
     const [listResults, setListResults] = useState([]);
 
+    /**
+     * Put in the list the results of the request
+     */
     const handleSubmit = () => {
         searchSounds(input).then((result) => {
-          //console.log(result);
           setListResults(result);
         });
     };
 
+    /**
+     * Wait to display the list of results
+     */
     useEffect(() => {
         const timeout = setTimeout(handleSubmit, 1000);
         return () => {

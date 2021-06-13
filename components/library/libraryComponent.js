@@ -7,7 +7,7 @@ import { remove } from "../library/librarySlice";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Audio } from "expo-av";
 
-const LibraryComponent = () => {
+const LibraryComponent = ({navigation}) => {
 
     /**
      * Use the librarySelector for the sounds in each pad

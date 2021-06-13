@@ -37,8 +37,6 @@ const PadLibrarySource = ({route,navigation}) => {
      */
     const changePadSource = (id) =>{
         dispatch(changeSource(id));
-        console.log(dispatch(changeSource(id)));
-        console.log(pad);
     }
 
     /**

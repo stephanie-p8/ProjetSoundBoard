@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
         marginTop:15
     },
     button:{
-        width:30,
-        height:30,
-        padding:50,
+        width:20,
+        height:20,
+        padding:30,
         margin:2,
         backgroundColor:'tomato'  
     }

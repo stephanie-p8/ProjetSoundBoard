@@ -8,6 +8,7 @@ import { edit } from "../components/library/librarySlice";
 const FreesoundItem = ({item, props}) =>{
 
     const [sound, setSound] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
 
      /**
      * Used to return reference to the dispatch function from the Redux store.
@@ -22,7 +23,16 @@ const FreesoundItem = ({item, props}) =>{
         const { sound } = await Audio.Sound.createAsync(item.previews["preview-hq-mp3"]);
         setSound(sound);
         await sound.playAsync();
+        setIsPlaying(true);
     };
+
+    /**
+     * Pause sound
+     */
+    const pauseSound = async () => {
+        await sound.pauseAsync();
+        setIsPlaying(false);
+    }
 
     /**
      * Download sound and edit source
@@ -47,9 +57,12 @@ const FreesoundItem = ({item, props}) =>{
     return(
         <View style={styles.itemContainer}>
             <View style={styles.audioContainer}>
-                <TouchableOpacity style={styles.audioButton} onPress={()=>playSound(item.id)}>
-                    <Ionicons name="play" size={50} color="dark"/>
-                </TouchableOpacity>
+                {
+                    isPlaying
+                    ? <TouchableOpacity style={styles.audioButton} onPress={()=>pauseSound(item.id)}><Ionicons name="pause" size={50} color="dark"/></TouchableOpacity>
+                    : <TouchableOpacity style={styles.audioButton} onPress={()=>playSound(item.id)}><Ionicons name="play" size={50} color="dark"/></TouchableOpacity>
+                }
+                
                 <Text style={styles.audioName}>{item.name}</Text>
             </View>
             <View style={styles.buttonChooseContainer}>
