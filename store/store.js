@@ -4,6 +4,7 @@ import { combineReducers,configureStore,getDefaultMiddleware } from "@reduxjs/to
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   persistReducer,
+  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -28,7 +29,7 @@ const persistedReducer = persistReducer(
  * @version 1.0.0
  * @see {@link https://redux-toolkit.js.org/usage/usage-with-typescript#configurestore | Configure the store - Redux toolkit }
  */
-export default configureStore({
+export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware({
     serializableCheck: {
@@ -36,3 +37,5 @@ export default configureStore({
     },
   }),
 });
+
+export const persistor = persistStore(store);
