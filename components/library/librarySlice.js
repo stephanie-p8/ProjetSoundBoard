@@ -10,42 +10,42 @@ export const librarySlice = createSlice({
   name: "library",
   initialState: [
     {
-      name: "cymbal",
+      name: "Cymbal",
       type: "default",
       url: require("../../assets/DefaultAudio/cymbal.wav"),
       crop: [2.3, 1],
       id: 0,
     },
     {
-      name: "daibyoshi",
+      name: "Daibyoshi",
       type: "default",
       url: require("../../assets/DefaultAudio/daibyoshi.wav"),
       crop: [1.3, 2],
       id: 1,
     },
     {
-        name: "med_taiko",
+        name: "Med-taiko",
         type: "default",
         url: require("../../assets/DefaultAudio/med_taiko.wav"),
         crop: [0.5, 3],
         id: 2,
     },
     {
-        name: "miyadaiko",
+        name: "Miyadaiko",
         type: "default",
         url: require("../../assets/DefaultAudio/miyadaiko.wav"),
         crop: [1.0, 2],
         id: 3,
     },
     {
-        name: "taiko",
+        name: "Taiko",
         type: "default",
         url: require("../../assets/DefaultAudio/taiko.wav"),
         crop: [2.3, 1],
         id: 4,
     },
     {
-        name: "tsuzumi",
+        name: "Tsuzumi",
         type: "default",
         url: require("../../assets/DefaultAudio/tsuzumi.wav"),
         crop: [0.0, 3],
@@ -77,7 +77,6 @@ export const librarySlice = createSlice({
     },
   },
 });
-
 
 export const { add, remove, edit } = librarySlice.actions; //reducer methods
 export default librarySlice.reducer; //reducer

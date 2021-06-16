@@ -13,7 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
  * @version 1.2.0
  * @see {@link https://github.com/repodio/react-native-trimmer | Github react-native-trimmer } give props and methods to use trimmer
  */
-const PadTrim = ({route}) =>{
+const PadTrim = ({route, navigation}) =>{
     /**
      * Route given for navigation
      * @see trimPad
@@ -112,7 +112,12 @@ const PadTrim = ({route}) =>{
     
     return(
         <View style={{flex:1}}>
-            <Text style={styles.header}>Rogner le sample {props.id} à la durée désirée</Text>
+            <Text style={styles.header}>
+                <TouchableOpacity style={{paddingRight:2}}onPress={()=>navigation.goBack()}>
+                    <Ionicons name="arrow-back-outline" size={30} color="white"/>
+                </TouchableOpacity>
+                Trim pad {props.id} to the desired length
+            </Text>
             <View>
                 {
                     isPlaying 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 /**
  * Render a view where user can choose the option of edition  
@@ -33,15 +34,20 @@ const PadEdition = ({route,navigation}) => {
     }
 
     return(
-        <View>
-            <Text style={styles.header}>Choix d'edition</Text>
-            <View style={{alignItems:'center'}}>
-                <Text style={styles.title}>Que voulez vous faire?</Text>
+        <View style={{flex:1}}>
+            <Text style={styles.header}>
+                <TouchableOpacity style={{paddingRight:2}}onPress={()=>navigation.goBack()}>
+                    <Ionicons name="arrow-back-outline" size={30} color="white"/>
+                </TouchableOpacity>
+                Edition choice
+            </Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>What do you want to do?</Text>
                 <TouchableOpacity onPress={trimPad}>
-                    <Text style={styles.buttonLabel}> - Rogner le sample {props.id}</Text>
+                    <Text style={styles.buttonLabel}> - Trim the pad {props.id}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={changePadSource}>
-                    <Text style={styles.buttonLabel}> - Changer le sample {props.id}</Text>
+                    <Text style={styles.buttonLabel}> - Change the pad {props.id} source</Text>
                 </TouchableOpacity>
             </View>
         </View>

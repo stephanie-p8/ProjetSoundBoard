@@ -96,13 +96,13 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         justifyContent:'center',
-        alignContent:'center',
+        alignItems:'center',
         marginTop:15
     },
     button:{
-        width:50,
-        height:50,
-        padding:50,
+        width:20,
+        height:20,
+        padding:30,
         margin:2,
         backgroundColor:'tomato'  
     }
